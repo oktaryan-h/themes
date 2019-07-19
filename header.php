@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-    <?php wp_head(); ?>
-  </head>
-  <body>
+<head>
+  <?php wp_head(); ?>
+</head>
+<body>
 
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
@@ -17,7 +17,7 @@
         <div class="nav-collapse collapse">
           <ul class="nav">
 
-              <?php wp_list_pages(array('title_li' => '', 'exclude' => 4)); ?>
+            <?php wp_list_pages(array('title_li' => '', 'exclude' => 4)); ?>
 
           </ul>
         </div><!--/.nav-collapse -->
@@ -27,5 +27,5 @@
 
   <div class="container">
     <div>
-  <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
-</div>
+      <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+    </div>
