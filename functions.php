@@ -17,13 +17,8 @@ function wp_hook_head() {
   <?php
 }
 
-function wp_hook_title() {
-	add_theme_support( 'title-tag' );
-}
-
 function wp_bootstrap_jquery() {
 	// Register the script like this for a theme:
-	//wp_register_script( 'jquery', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array( 'jquery' ) );
 	wp_register_script( 'bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array( 'jquery' ) );
 	// For either a plugin or a theme, you can then enqueue the script:
 	wp_enqueue_script('jquery');
@@ -41,18 +36,19 @@ function register_main_sidebar() {
 	));
 }
 
-function register_custom_nav_menus() {
+function wp_hook_features() {
+	add_theme_support( 'title-tag' );
 	register_nav_menus(
 		array(
 			'header-menu' => __( 'Header Menu' ),
 			'footer-menu' => __( 'Footer Menu' ),
 		)
 	);
+
 }
 
-add_action( 'init', 'wp_hook_title' );
 add_action( 'wp_head', 'wp_hook_head' );
-add_action( 'after_setup_theme', 'register_custom_nav_menus' );
+add_action( 'after_setup_theme', 'wp_hook_features' );
 add_action( 'wp_enqueue_scripts', 'wp_bootstrap_jquery' );
 add_action( 'widgets_init', 'register_main_sidebar' );
 
