@@ -50,9 +50,9 @@ class TM_Theme_Features {
 
 $tm_theme = new TM_Theme_Features;
 
-add_action( 'wp_head', array($tm_theme, 'hook_head' ) );
-add_action( 'after_setup_theme', array($tm_theme, 'hook_features' ) );
-add_action( 'wp_enqueue_scripts', array($tm_theme, 'hook_styles_and_scripts' ) );
-add_action( 'widgets_init', array($tm_theme, 'register_main_sidebar' ) );
+add_action( 'wp_head', array( $tm_theme, 'hook_head' ) );
+add_action( 'after_setup_theme', array( $tm_theme, 'hook_features' ) );
+add_action( 'wp_enqueue_scripts', array( $tm_theme, 'hook_styles_and_scripts' ) );
+add_action( 'widgets_init', array( $tm_theme, 'register_main_sidebar' ) );
 
 ?>
