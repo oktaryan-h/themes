@@ -3,7 +3,7 @@
 function wp_hook_head() {
 	?>
 	<meta charset="utf-8">
-	<title><?php wp_get_document_title('|',1,'right'); ?> <?php bloginfo('name'); ?></title>
+	<title><?php  // bloginfo('name'); ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Le styles -->
@@ -17,9 +17,9 @@ function wp_hook_head() {
   <?php
 }
 
-// function wp_hook_enqueue_scripts() {
-// 	wp_enqueue_script("jquery");
-// }
+function wp_hook_title() {
+	add_theme_support( 'title-tag' );
+}
 
 function wp_bootstrap_jquery() {
 	// Register the script like this for a theme:
@@ -50,7 +50,8 @@ function register_custom_nav_menus() {
 	);
 }
 
-add_action('wp_head', 'wp_hook_head');
+add_action( 'init', 'wp_hook_title' );
+add_action( 'wp_head', 'wp_hook_head' );
 add_action( 'after_setup_theme', 'register_custom_nav_menus' );
 add_action( 'wp_enqueue_scripts', 'wp_bootstrap_jquery' );
 add_action( 'widgets_init', 'register_main_sidebar' );
